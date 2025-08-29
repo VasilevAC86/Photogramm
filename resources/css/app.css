@@ -1,0 +1,92 @@
+body{
+    margin: 0; 
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ccc;
+    color: #C52c0a;
+}
+
+header{
+    width: 100%;
+    height: 40px;
+    border-bottom: 2px solid #C52c0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+header .user{
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    line-height: 40px; /*Ширина строки*/
+    color: #C52c0a;
+    font-weight: 700;
+}
+
+header .logo{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 36px;
+    color:#C52c0a;
+    text-decoration: none;
+}
+.container{
+    width: 100%;
+    max-width: 1000px;
+    padding: 15px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.sidebar{
+    width: 20%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar a{
+    color: #444;
+    text-decoration: none;
+}
+
+.sidebar a:hover{
+    color: #C52c0a;
+    text-decoration: underline;
+}
+
+.content{
+    padding: 15px;
+    border-left: 1px solid #C52c0a;
+    min-height: calc(100vh - 120px);
+    gap: 20px;
+}
+.postcard{
+    display: flex;
+    padding: 10px;
+    border: 1px solid #C52c0a;
+    border-radius: 1px;
+    margin-bottom: 20px;
+}
+
+.postcard-image{
+    width: 50%;
+}
+
+.postcard-desc{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.postcard-desc p{
+    flex-grow: 1;
+}
+
+.pubdate{
+    align-self: flex-end;
+}
+.author{
+    align-self: flex-end;
+}

@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #c52c0a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /*100% высота от окна браузера, */
+}
+.description{
+    width: 600px;
+    padding: 30px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    
+}
+.btn {
+    padding: 7px 28px;
+    border-radius: 3px;
+    background-color: #c52c0a;
+    color: #fff;
+    text-decoration: none; /*убираем подчёркивание ссылки*/
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #c52c0a;
+}
+
+.btn-white{
+    background-color: #fff;
+    color: #c52c0a;
+}
+.btn-white:hover{
+    background-color: #c52c0a;
+    color: #fff;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

@@ -15,4 +15,7 @@ class Post extends Model
     public function user(){ // ф. для запроса связанных данных (всё из БД)
         return $this->belongsTo(User::class);
     }
+    public function comments(){ // ф. для запроса связанных данных (всё из БД)
+        return $this->hasMany(Comment::class);
+    }
 }

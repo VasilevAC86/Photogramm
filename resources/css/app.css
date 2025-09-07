@@ -49,6 +49,9 @@ header .logo{
 .sidebar a{
     color: #444;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .sidebar a:hover{
@@ -89,4 +92,80 @@ header .logo{
 }
 .author{
     align-self: flex-end;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.pagination a{
+    color: #C52c0a;
+    text-decoration: none;
+}
+
+.add-btn{
+    position: fixed;
+    bottom: 150px;
+    right: 100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #C52c0a;
+    color: white;
+    font-size: 180px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-btn:hover{
+    background-color: #444;
+}
+
+.usercard{
+    border: 1px solid #C52c0a;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+}
+
+.usercard_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.btn {
+    padding: 7px 28px;
+    border-radius: 3px;
+    background-color: #c52c0a;
+    color: #fff;
+    text-decoration: none; /*убираем подчёркивание ссылки*/
+    border: none;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #c52c0a;
+}
+
+.bage{
+    font-size: 9px;
+    width: 10ps;
+    height: 10px;
+    background-color: #C52c0a;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

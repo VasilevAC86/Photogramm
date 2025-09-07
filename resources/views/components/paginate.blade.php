@@ -1,16 +1,24 @@
 @if ($paginator->hasPages())
-    <ul class="pagination">
+    <div class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage()) <!--Пагинатор - это счётчик страницы-->
-            <li class="disabled"><span>Назад</span></li>
+            <span>Назад</span>
         @else
-            <li><a href="{{ $paginator->previousPageUrl() }}" rel="prev">Назад</a></li>
+            <a href="{{ $paginator->previousPageUrl() }}" rel="prev">Назад</a>
         @endif       
         
+        @for($pageN = 1; $pageN <= $paginator->lastpage(); $pageN++)
+            @if($pageN == $paginator->currentPage())
+                <span>{{$pageN}}</span>
+            @else
+                <a href="{{$paginator->url($pageN)}}">{{$pageN}}</a>
+            @endif
+        @endfor
+
         @if ($paginator->hasMorePages())
-            <li><a href="{{ $paginator->nextPageUrl() }}" rel="next">Вперед</a></li>
+            <a href="{{ $paginator->nextPageUrl() }}" rel="next">Вперед</a>
         @else
-            <li class="disabled"><span>Вперед</span></li>
+            <span>Вперед</span>
         @endif
-    </ul>
+    </div>
 @endif

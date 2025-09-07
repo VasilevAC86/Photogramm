@@ -17,7 +17,8 @@
         </div>
         <div class="content">
             @yield('content')
-        </div>
+        </div>                
     </div>
+    <a href="/add" class="add-btn"> + </a>
 </body>
 </html>

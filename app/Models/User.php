@@ -46,4 +46,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    function posts(){
+        return $this->hasMany(Post::class); // чтобы из зарегистрирванного пользователя запросить список постов
+    }
+
+    function followers(){ // связываем подписчиков с пользователем (возвращает подписчиков пользователя)
+        return $this->belongsToMany(User::class, 'followings', 'following_id', 'follower-id');
+    }
+    function followings(){ // возврат тех, на кого подписался пользователь
+        return $this->belongsToMany(User::class, 'followings', 'follower-id', 'following_id');
+    }
+    function notifications(){ // для получения списка уведомлений каждого пользователя
+        return $this->hasMany(Notifications::class);
+    }    
 }

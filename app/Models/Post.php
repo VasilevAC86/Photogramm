@@ -18,4 +18,7 @@ class Post extends Model
     public function comments(){ // ф. для запроса связанных данных (всё из БД)
         return $this->hasMany(Comment::class);
     }
+    public function likes(){ // обратная связь
+        return $this->hasMany(Like::class);
+    }
 }

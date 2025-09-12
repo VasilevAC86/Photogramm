@@ -21,4 +21,6 @@ Route::group(['middleware' => ['auth']], function(){ # защищённая гр
     Route::post('/unfollow/{id}', [MainController::class, 'unfollow']);
     Route::get('/notification', [MainController::class, 'notifyPage']);
     Route::post('/comment', [MainController::class, 'setComment']);
+    Route::get('/delete-comment/{id}', [MainController::class, 'deleteComment']);
+    Route::get('/like/{id}', [MainController::class, 'setLike']);
 });

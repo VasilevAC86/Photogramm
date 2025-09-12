@@ -10,9 +10,17 @@ use App\Models\User;
 use App\Models\Notification;
 use App\Services\NotificationService;
 use App\Models\Comment;
+use App\Models\Like;
 
 class MainController extends Controller
 {
+    public function deleteComment($id){
+        $comment = Comment::with(['user'])->find($id);
+        if($comment->user->id == Auth::user()->id){ // если пользователь удаляет свой комментарий
+            $comment->delete();
+        }
+        return back();
+    }
     public function notifyPage(){
         $notifyNew = Notification::where('user_id', Auth::user()->id)->where('status', 'new')->get(); // Непрочитанные сообщения получить
         $notifyOld = Notification::where('user_id', Auth::user()->id)->where('status', 'old')->get(); // Прочитанные сообщения получить
@@ -33,6 +41,9 @@ class MainController extends Controller
     }
 
     public function welcomePage(){
+        if(Auth::user()){
+            return redirect('/lenta'); // если пользователь авторизован, то он сразу переходит на lenta
+        }
         return view('pages/welcome');
     }
 
@@ -64,7 +75,7 @@ class MainController extends Controller
 
         $posts = Post::where('user_id', 0)->paginate(6);
         if(count($followings) > 0) {
-            $posts = Post::whereIn('user_id', $followings)->paginate(6);
+            $posts = Post::with(['likes'])->whereIn('user_id', $followings)->paginate(6);
         }            
 
         //return response()->json($posts);
@@ -117,6 +128,20 @@ class MainController extends Controller
             'post_id' => $request->input('post_id'),
             'message' => $request->input('message')
         ]);
+        $post = Post::with(['user'])->find($request->input('post_id')); // для поиска автора поста
+        NotificationService::send($post->user()->id, "Пользователь ".Auth::user()->name." оставил комментарий под вашей записью");
         return back(); // возвращаем пользователя обратно на страницу
+    }
+    public function setLike($id){
+        $like = Like::where('user_id', Auth::user()->id)->where('post_id', $id)->first();
+        if($like){
+            $like->delete();
+        } else {
+            Like::create([
+                'user_id' => Auth::user()->id,
+                'post_id' => $id
+            ]);
+        }
+        return back();
     }
 }

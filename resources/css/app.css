@@ -71,14 +71,17 @@ header .logo{
     border: 1px solid #C52c0a;
     border-radius: 1px;
     margin-bottom: 20px;
+    aspect-ratio: 2/1; /*соотношение сторон*/
+    position: relative;
 }
 
 .postcard-image{
     width: 50%;
+    object-fit: cover; /*изображение покрывает всю область*/
 }
 
 .postcard-desc{
-    padding: 15px;
+    padding: 0 15px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -168,4 +171,68 @@ header .logo{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.postcard-comment{
+    background-color: rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 6px;
+    overflow-y: auto;
+    flex-grow: 1; /*блок занимает всё доступное пространство*/    
+}
+
+.postcard-comment form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.postcard-comment textarea{
+    flex-grow: 1;
+    height: 70px;
+}
+
+.postcard-comment .btn{
+    padding: 10px 15px;
+}
+
+.comment{
+    font-size: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    border-radius: 1px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.postcard h2, .postcard h3, .postcard h4{
+    margin-top: 0;
+}
+
+.remove-link{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.like{
+    position: absolute;
+    bottom: 20px;
+    left: calc(25% - 30px);
+    font-size:20px;
+    font-weight: 900;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 5px 15px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.like:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+    transform: scale(1.3);
 }
